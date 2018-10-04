@@ -18,7 +18,9 @@ $("#searchButton1").click(function(e) {
 
     $.ajax({
         url: apiURL,
-        dataType: "json",
+        // add p to the end of json in case 
+        // you run into cores errors
+        dataType: "jsonp",
         success: function(parsed_json) {
 
             var items = parsed_json['items'];
@@ -58,7 +60,9 @@ $("#searchButton2").click(function(e) {
 
     $.ajax({
         url: apiURL,
-        dataType: "json",
+        // add p to the end of json in case 
+        // you run into cores errors
+        dataType: "jsonp",
         success: function(parsed_json) {
 
             var items = parsed_json['items'];

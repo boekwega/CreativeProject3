@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 .grid-container {
   display: grid;
   grid-column-gap: 50px;

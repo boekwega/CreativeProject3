@@ -33,7 +33,14 @@ $("#searchButton1").click(function(e) {
             }
             else {
                 var Title = "Title: " + parsed_json['Title'];
-                $("#movieInfo1").html(Title);
+                var Rated = "Rated: " + parsed_json['Rated'];
+                var Ratings = "Ratings: " + parsed_json['Ratings'][1]['Value'];
+                var Runtime = "Runtime: " + parsed_json['Runtime'];
+                var Genre = "Genre: " + parsed_json['Genre'];
+                var BoxOffice = "Box office: " + parsed_json['BoxOffice'];
+                var everything = Title + "<br>" + Rated + "<br>" + Ratings +
+                    "<br>" + Runtime + "<br>" + Genre + "<br>" + BoxOffice;
+                $("#movieInfo1").html(everything);
             }
         }
     })
@@ -75,9 +82,16 @@ $("#searchButton2").click(function(e) {
             }
             else {
                 var Title = "Title: " + parsed_json['Title'];
-                $("#movieInfo2").html(Title);
+                var Rated = "Rated: " + parsed_json['Rated'];
+                var Ratings = "Ratings: " + parsed_json['Ratings'][1]['Value'];
+                var Runtime = "Runtime: " + parsed_json['Runtime'];
+                var Genre = "Genre: " + parsed_json['Genre'];
+                var BoxOffice = "Box office: " + parsed_json['BoxOffice'];
+                var everything = Title + "<br>" + Rated + "<br>" + Ratings +
+                    "<br>" + Runtime + "<br>" + Genre + "<br>" + BoxOffice;
+                $("#movieInfo2").html(everything);
             }
         }
     })
 
-});
+});;

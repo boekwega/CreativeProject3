@@ -1,3 +1,11 @@
+textarea {
+  height: 15px;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  font-family: Tahoma, sans-serif;
+  font-size: 16pt;
+}
+
 h1 {
   text-align: center;
 }
@@ -15,5 +23,5 @@ h1 {
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
-  text-align: center;
+  text-align: left;
 }

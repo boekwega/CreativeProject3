@@ -29,18 +29,33 @@ $("#searchButton1").click(function(e) {
             console.log(parsed_json);
 
             if (parsed_json['Error'] != null) {
-                $("#movieInfo1").html("Error: movie not found");
+                $("#movieInfo1").html("Title \"" + movieTitle + "\" not found");
             }
             else {
                 var Title = "Title: " + parsed_json['Title'];
                 var Rated = "Rated: " + parsed_json['Rated'];
-                var Ratings = "Ratings: " + parsed_json['Ratings'][1]['Value'];
+                var Ratings = "Rating: N/A";
+                
+                if (parsed_json['Ratings'].length > 1) {
+                    Ratings = "Ratings: " + parsed_json['Ratings'][1]['Value'];
+                }
+                
                 var Runtime = "Runtime: " + parsed_json['Runtime'];
                 var Genre = "Genre: " + parsed_json['Genre'];
                 var BoxOffice = "Box office: " + parsed_json['BoxOffice'];
+
                 var everything = Title + "<br>" + Rated + "<br>" + Ratings +
                     "<br>" + Runtime + "<br>" + Genre + "<br>" + BoxOffice;
                 $("#movieInfo1").html(everything);
+                
+                $("#searchBox1").val("");
+                
+                var PosterURL = parsed_json['Poster'];
+                
+                
+                console.log("poster url was " + PosterURL);
+                $("#poster1").attr("src", PosterURL);
+
             }
         }
     })
@@ -78,18 +93,30 @@ $("#searchButton2").click(function(e) {
             console.log(parsed_json);
 
             if (parsed_json['Error'] != null) {
-                $("#movieInfo2").html("Error: movie not found");
+                $("#movieInfo2").html("Title \"" + movieTitle + "\" not found");
             }
             else {
                 var Title = "Title: " + parsed_json['Title'];
                 var Rated = "Rated: " + parsed_json['Rated'];
-                var Ratings = "Ratings: " + parsed_json['Ratings'][1]['Value'];
+                var Ratings = "Rating: N/A";
+                
+                if (parsed_json['Ratings'].length > 1) {
+                    Ratings = "Ratings: " + parsed_json['Ratings'][1]['Value'];
+                }
+                
                 var Runtime = "Runtime: " + parsed_json['Runtime'];
                 var Genre = "Genre: " + parsed_json['Genre'];
                 var BoxOffice = "Box office: " + parsed_json['BoxOffice'];
                 var everything = Title + "<br>" + Rated + "<br>" + Ratings +
                     "<br>" + Runtime + "<br>" + Genre + "<br>" + BoxOffice;
                 $("#movieInfo2").html(everything);
+                
+                $("#searchBox2").val("");
+                
+                var PosterURL = parsed_json['Poster'];
+                
+                console.log("poster url was " + PosterURL);
+                $("#poster2").attr("src", PosterURL);
             }
         }
     })

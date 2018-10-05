@@ -30,6 +30,7 @@ $("#searchButton1").click(function(e) {
 
             if (parsed_json['Error'] != null) {
                 $("#movieInfo1").html("Title \"" + movieTitle + "\" not found");
+                $("#poster1").attr("src", "");
             }
             else {
                 var Title = "Title: " + parsed_json['Title'];
@@ -98,6 +99,7 @@ $("#searchButton2").click(function(e) {
 
             if (parsed_json['Error'] != null) {
                 $("#movieInfo2").html("Title \"" + movieTitle + "\" not found");
+                $("#poster2").attr("src", "");
             }
             else {
                 var Title = "Title: " + parsed_json['Title'];

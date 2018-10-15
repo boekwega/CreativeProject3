@@ -18,18 +18,16 @@
 
     <div class="grid-container">
 
-        <form class="grid-item">
-            <!-- The "textarea" is a little textbox"-->
-            Type first movie title, click search button<br><textarea id="searchBox1"></textarea>
-            <input id="searchButton1" type="submit" value="search">
+        <form class="grid-item" name='userForm' ng-submit='addNew(userForm)'>
+            <input placeholder="Movie Title" ng-model='title1' />
+            <button type='submit' id="btn1">Search Title</button>
             <p id="movieInfo1">Movie info will appear here</p>
             <p><img id="poster1" src=""></p>
         </form>
 
         <form class="grid-item">
-            <!-- The "textarea" is a little textbox"-->
-            Type second movie title, click search button<br><textarea id="searchBox2"></textarea>
-            <input id="searchButton2" type="submit" value="search">
+            <input placeholder="Movie Title" ng-model='title2' />
+            <button type='submit' id="btn2">Search Title</button>
             <p id="movieInfo2">Movie info will appear here</p>
             <p><img id="poster2" src=""></p>
         </form>

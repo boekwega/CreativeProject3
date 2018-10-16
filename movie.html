@@ -5,12 +5,11 @@
 <head>
     <title>Compare Movies</title>
     
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="movie.css">
     
     <!-- include our dependency on angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-    
-    <script src="main.js"></script>
+    <script src="movie.js"></script>
 </head>
 
 <body ng-app='app' ng-controller='mainCtrl'>
@@ -22,8 +21,8 @@
         <form class="grid-item" name='movieTitle' ng-submit='btn1(movieTitle)'>
             <input placeholder="Movie Title" ng-model='movieTitle.title' />
             <button type='submit' id="btn1">Search Title</button>
-            <p id="movieInfo1">Movie info will appear here</p>
-            <p><img id="poster1" src=""></p>
+            <p id="movieInfo1">{{movieInfo1}}</p>
+            <!--<p><img id="poster1" src={{poster1}}></p>-->
         </form>
 
     </div>

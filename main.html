@@ -10,6 +10,7 @@
     <!-- include our dependency on angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     
+    <script src="main.js"></script>
 </head>
 
 <body ng-app='app' ng-controller='mainCtrl'>
@@ -18,21 +19,12 @@
 
     <div class="grid-container">
 
-        <form class="grid-item" name='userForm' ng-submit='addNew(userForm)'>
-            <input placeholder="Movie Title" ng-model='title1' />
+        <form class="grid-item" name='movieTitle' ng-submit='btn1(movieTitle)'>
+            <input placeholder="Movie Title" ng-model='movieTitle.title' />
             <button type='submit' id="btn1">Search Title</button>
             <p id="movieInfo1">Movie info will appear here</p>
             <p><img id="poster1" src=""></p>
         </form>
-
-        <form class="grid-item">
-            <input placeholder="Movie Title" ng-model='title2' />
-            <button type='submit' id="btn2">Search Title</button>
-            <p id="movieInfo2">Movie info will appear here</p>
-            <p><img id="poster2" src=""></p>
-        </form>
-
-        <script type="text/javascript" src="main.js"></script>
 
     </div>
 </body>

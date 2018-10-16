@@ -30,18 +30,29 @@ app.controller('mainCtrl',
                     var title = response.data["Title"];
                     var rated = response.data["Rated"];
 
-                    var ratings = "Rating: N/A";
+                    var ratings = "";
 
-                    var ratingArray = response['Ratings'];
+                    
+                    console.log("log of ratings: " + response.data["Ratings"][1]);
 
-                    if (ratingArray.length > 1) {
+                    if ( !angular.isUndefined(response.data["Ratings"][1]) ) {
                         ratings = response.data["Ratings"][1]['Value'];
                     }
-
+                    else if (!angular.isUndefined(response.data["Ratings"][0]) ) {
+                        ratings = response.data["Ratings"][0]['Value'];
+                    }
+                    else {
+                        var ratings = "N/A";
+                    }
+                    
                     var runtime = response.data["Runtime"];
                     var genre = response.data["Genre"];
                     var boxOffice = response.data["BoxOffice"];
-                    var posterURL = "<img src=" + response.data["Poster"] + ">";
+                    var posterURL = ""
+
+                    if (response.data["Poster"] != "N/A") {
+                        posterURL = "<img src=" + response.data["Poster"] + ">";
+                    }
 
                     var everything = "Title: " + title + "<br>" + "Rated: " +
                         rated + "<br>" + "Ratings: " + ratings + "<br>" +

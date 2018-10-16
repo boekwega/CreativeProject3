@@ -1,34 +1,57 @@
-angular.module('app', [])
-    .controller('mainCtrl',
-        function($scope, $http) {
+var app = angular.module('app', ['ngSanitize']);
+app.controller('mainCtrl',
+    function($scope, $http) {
 
-            $scope.btn1 = function(form) {
+        $scope.search = function(order, input_title) {
 
-                console.log(form);
-                console.log(form.title);
+            console.log(input_title);
 
-                var apiURL = "https://www.omdbapi.com/?apikey=9ee2a57e&t=";
-                apiURL += form.title;
+            var apiURL = "https://www.omdbapi.com/?apikey=9ee2a57e&t=";
+            apiURL += input_title;
 
-                //log the url
-                console.log("the url was " + apiURL);
+            //log the url
+            console.log("the url was " + apiURL);
 
-                $http.get(apiURL).then(function(response) {
+            $http.get(apiURL).then(function(response) {
 
-                    console.log("The response was: " + response);
-                    console.log("response.Error: " + response.Error);
-                    console.log("response.data: " + response.data);
-                    $scope.movieInfo1 = response.data;
+                if (response.data["Response"] == "False") {
 
-/* We're at the point where we're getting all the information back from the 
-api and now we need to figure out how to parse through it.
+                    if (order == 1) {
+                        $scope.info1 = response.data["Error"];
+                        $scope.poster1 = "";
+                    }
+                    else if (order == 2) {
+                        $scope.info2 = response.data["Error"];
+                        $scope.poster2 = "";
+                    }
+                }
+                else {
 
-Also, we need to figure out how to deal with an invalid movie title.*/
+                    var title = response.data["Title"];
+                    var rated = response.data["Rated"];
+                    var ratings = response.data["Ratings"][1]['Value'];
+                    var runtime = response.data["Runtime"];
+                    var genre = response.data["Genre"];
+                    var boxOffice = response.data["BoxOffice"];
+                    var posterURL = response.data["Poster"];
 
+                    var everything = "Title: " + title + "<br>" + "Rated: " +
+                        rated + "<br>" + "Ratings: " + ratings + "<br>" +
+                        "Runtime: " + runtime + "<br>" + "Genre: " + genre + "<br>" +
+                        "Box office: " + boxOffice;
 
-                });
+                    if (order == 1) {
+                        $scope.info1 = everything;
+                        $scope.poster1 = posterURL;
+                    }
+                    else if (order == 2) {
+                        $scope.info2 = everything;
+                        $scope.poster2 = posterURL;
+                    }
+                }
 
-            }
+            });
 
+        }
 
-        })
+    })

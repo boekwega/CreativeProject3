@@ -4,11 +4,13 @@
 
 <head>
     <title>Compare Movies</title>
-    
+
     <link rel="stylesheet" href="movie.css">
-    
-    <!-- include our dependency on angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+<!--include our dependence on angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+
     <script src="movie.js"></script>
 </head>
 
@@ -18,12 +20,24 @@
 
     <div class="grid-container">
 
-        <form class="grid-item" name='movieTitle' ng-submit='btn1(movieTitle)'>
-            <input placeholder="Movie Title" ng-model='movieTitle.title' />
-            <button type='submit' id="btn1">Search Title</button>
-            <p id="movieInfo1">{{movieInfo1}}</p>
-            <!--<p><img id="poster1" src={{poster1}}></p>-->
+        <form class="grid-item" ng-submit='search(1, movieTitle1)'>
+            <input placeholder="Movie Title" ng-model='movieTitle1' />
+            <button type='submit'>Search Title</button>
+            
+            <!--<element ng-bind-html="expression"></element>-->
+            <div ng-bind-html="info1"></div>
+            <p><img src={{poster1}}></p>
         </form>
+        
+        <form class="grid-item" ng-submit='search(2, movieTitle2)'>
+            <input placeholder="Movie Title" ng-model='movieTitle2' />
+            <button type='submit'>Search Title</button>
+            
+            <!--<element ng-bind-html="expression"></element>-->
+            <div ng-bind-html="info2"></div>
+            <p><img src={{poster2}}></p>
+        </form>
+
 
     </div>
 </body>

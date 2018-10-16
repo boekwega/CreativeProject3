@@ -1,3 +1,17 @@
+angular.module('app', [])
+  .controller('mainCtrl', mainCtrl)
+  .directive('avatar', avatarDirective);
+  
+  function mainCtrl ($scope) {
+      
+    $scope.btn1 = function(info){
+        var title = $scope.info.title
+        console.log(title)
+        
+    }
+}
+
+
 // e is the event
 $("#searchButton1").click(function(e) {
 

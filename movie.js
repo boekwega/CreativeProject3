@@ -29,11 +29,19 @@ app.controller('mainCtrl',
 
                     var title = response.data["Title"];
                     var rated = response.data["Rated"];
-                    var ratings = response.data["Ratings"][1]['Value'];
+
+                    var ratings = "Rating: N/A";
+
+                    var ratingArray = response['Ratings'];
+
+                    if (ratingArray.length > 1) {
+                        ratings = response.data["Ratings"][1]['Value'];
+                    }
+
                     var runtime = response.data["Runtime"];
                     var genre = response.data["Genre"];
                     var boxOffice = response.data["BoxOffice"];
-                    var posterURL = response.data["Poster"];
+                    var posterURL = "<img src=" + response.data["Poster"] + ">";
 
                     var everything = "Title: " + title + "<br>" + "Rated: " +
                         rated + "<br>" + "Ratings: " + ratings + "<br>" +

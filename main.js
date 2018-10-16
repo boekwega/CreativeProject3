@@ -1,6 +1,6 @@
 angular.module('app', [])
   .controller('mainCtrl', mainCtrl)
-  .directive('avatar', avatarDirective);
+ // .directive('avatar', avatarDirective);
   
   function mainCtrl ($scope) {
       
